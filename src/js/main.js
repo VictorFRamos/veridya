@@ -175,9 +175,14 @@ function setupBuyButton() {
 }
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', function() {
+
+function initHome(){
     showSlide(currentSlideInt);
     renderProducts();
+    setupBuyButton();
+}
+
+function initDetalhes(){
     loadProductDetails();
     setupBuyButton();
-});
+}
