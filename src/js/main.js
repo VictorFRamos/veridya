@@ -75,19 +75,58 @@ const products = [
     }
 ];
 
-// Função para renderizar os produtos na página inicial
+// Carrossel
+let currentSlideInt = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (index >= slides.length) currentSlideInt = 0;
+    if (index < 0) currentSlideInt = slides.length - 1;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[currentSlideInt].classList.add('active');
+    dots[currentSlideInt].classList.add('active');
+    
+    document.querySelector('.carousel-container').style.transform = `translateX(-${currentSlideInt * 100}%)`;
+}
+
+function moveSlide(n) {
+    showSlide(currentSlideInt += n);
+}
+
+function currentSlide(n) {
+    showSlide(currentSlideInt = n - 1);
+}
+
+// Auto-avançar o carrossel
+setInterval(() => {
+    moveSlide(1);
+}, 5000);
+
+// Função para renderizar os produtos
 function renderProducts() {
     const productContainer = document.getElementById('productContainer');
     
     if (productContainer) {
-        productContainer.innerHTML = products.map(product => `
+        // Ordena por mais vendidos (simulação)
+        const bestSellers = [...products].sort((a, b) => b.id - a.id);
+        
+        productContainer.innerHTML = bestSellers.map(product => `
             <div class="product-card">
-                <img src="${product.image}" alt="${product.title}">
+                <img src="${product.image}" alt="${product.title}" onerror="this.src='https://via.placeholder.com/300x200.png/7C7F38/FFFFFF?text=Certificado+${product.type}'">
                 <div class="product-info">
                     <h3>${product.title}</h3>
+                    <div class="product-badge">
+                        ${product.type}
+                    </div>
                     <p class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                    <p class="validity">Validade: ${product.validity}</p>
                     <p class="installments">${product.installments}</p>
-                    <a href="produto.html?id=${product.id}" class="btn" style="background-color: #7C7F38;">Detalhes</a>
+                    <a href="produto.html?id=${product.id}" class="btn">Detalhes</a>
                 </div>
             </div>
         `).join('');
@@ -137,6 +176,7 @@ function setupBuyButton() {
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
+    showSlide(currentSlideInt);
     renderProducts();
     loadProductDetails();
     setupBuyButton();

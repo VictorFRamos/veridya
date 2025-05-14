@@ -3,43 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veridya - Certificados Verificáveis</title>
+    <title>Veridya - Certificados Digitais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1 class="logo">Veridya</h1>
+            <a href="index.html" class="logo">
+    <img src="images/logo.jpg" 
+         alt="Veridya - Certificados Digitais" 
+         class="logo-img">
+</a>
             <nav>
                 <ul>
                     <li><a href="index.html" style="color: #163828;">Home</a></li>
-                    <li><a href="#certificados" style="color: #DD7126;">Certificados</a></li>
-                    <li><a href="#sobre" style="color: #7C7F38;">Sobre</a></li>
+                    <li><a href="#compre" style="color: #DD7126;">Compre</a></li>
+                    <li><a href="#mais-vendidos" style="color: #7C7F38;">Mais Vendidos</a></li>
                     <li><a href="#contato" style="color: #163828;">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Certificados Digitais Verificáveis</h2>
-            <p>Emissão segura e rápida com tecnologia blockchain</p>
-            <a href="#certificados" class="btn" style="background-color: #DD7126;">Ver Certificados</a>
-        </section>
+    <!-- Seção Carrossel -->
+    <section class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="images/Certificado-A1-e-Certificado-A3-para-e-CPF-e-e-CNPJ.jpg" alt="Certificado Digital A1">
+                <div class="carousel-caption">
+                    <h2>Certificado Digital A1</h2>
+                    <p>Validade de 1 ano, instalação simples no computador</p>
+                    <a href="#compre" class="btn" style="background-color: #7C7F38;">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/banner_quem_somos.jpg" alt="Certificado Digital A3">
+                <div class="carousel-caption">
+                    <h2>Certificado Digital A3</h2>
+                    <p>Validade de 3 anos, maior segurança com token</p>
+                    <a href="#compre" class="btn" style="background-color: #DD7126;">Saiba Mais</a>
+                </div>
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
 
-        <section id="certificados" class="products">
-            <h2 style="color: #163828;">Nossos Certificados</h2>
+    <!-- Seção Compre seu Certificado -->
+    <section id="compre" class="buy-section">
+        <div class="container">
+            <h2 style="color: #163828;">Compre seu Certificado Digital</h2>
+            <div class="buy-options">
+                <div class="buy-card">
+                    <i class="fas fa-certificate" style="color: #7C7F38;"></i>
+                    <h3>Novo Certificado</h3>
+                    <p>Adquira seu primeiro certificado digital com toda segurança Veridya</p>
+                    <a href="#mais-vendidos" class="btn" style="background-color: #7C7F38;">Comprar</a>
+                </div>
+                <div class="buy-card">
+                    <i class="fas fa-redo" style="color: #DD7126;"></i>
+                    <h3>Renovar Certificado</h3>
+                    <p>Renove seu certificado digital com condições especiais</p>
+                    <a href="#renovar" class="btn" style="background-color: #DD7126;">Renovar</a>
+                </div>
+                <div class="buy-card">
+                    <i class="fas fa-question-circle" style="color: #163828;"></i>
+                    <h3>Precisa de Ajuda?</h3>
+                    <p>Nossa equipe está pronta para te ajudar na escolha do certificado ideal</p>
+                    <a href="#contato" class="btn" style="background-color: #163828;">Falar com Especialista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Mais Vendidos -->
+    <section id="mais-vendidos" class="featured-products">
+        <div class="container">
+            <h2 style="color: #DD7126;">Certificados Mais Vendidos</h2>
             <div class="product-grid" id="productContainer">
                 <!-- Produtos serão carregados via JavaScript -->
             </div>
-        </section>
-
-        <section id="sobre" class="about">
-            <h2 style="color: #7C7F38;">Sobre a Veridya</h2>
-            <p>A Veridya é especializada na emissão de certificados digitais verificáveis, utilizando tecnologia de ponta para garantir autenticidade e segurança.</p>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer id="contato">
         <div class="container">
