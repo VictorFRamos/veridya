@@ -163,19 +163,7 @@ function loadProductDetails() {
     }
 }
 
-// Função para simular a compra
-function setupBuyButton() {
-    const buyButton = document.getElementById('buyButton');
-    
-    if (buyButton) {
-        buyButton.addEventListener('click', () => {
-            alert('Compra simulada! Em uma implementação real, isso redirecionaria para o checkout.');
-        });
-    }
-}
-
 // Inicialização
-
 function initHome(){
     showSlide(currentSlideInt);
     renderProducts();
@@ -185,4 +173,177 @@ function initHome(){
 function initDetalhes(){
     loadProductDetails();
     setupBuyButton();
+}
+
+function initCheckout(){
+    loadCheckoutData();
+    setupPaymentTabs();
+    setupInputMasks();
+    setupConfirmButtons();
+}
+
+
+function loadInvoiceData() {
+    if (window.location.pathname.includes('invoice.html')) {
+        // Obtém o ID do produto da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        if (productId) {
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                // Preenche os dados do produto
+                document.getElementById('invoiceProductTitle').textContent = product.title;
+                document.getElementById('invoiceProductType').textContent = product.type;
+                document.getElementById('invoiceProductValidity').textContent = product.validity;
+                document.getElementById('invoiceProductImage').src = product.image;
+                document.getElementById('invoiceProductImage').alt = product.title;
+                document.getElementById('invoiceInstallments').textContent = product.installments;
+                document.getElementById('invoiceTotalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+
+                // Atualiza a data atual
+                const today = new Date();
+                document.getElementById('orderDate').textContent = today.toLocaleDateString('pt-BR');
+
+                // Gera um número de pedido aleatório
+                document.getElementById('orderId').textContent = `VD-${today.getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+            }
+        }
+    }
+}
+
+
+// Função para carregar dados do checkout
+function loadCheckoutData() {
+    if (window.location.pathname.includes('checkout.html')) {
+        // Obtém o ID do produto da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        if (productId) {
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                // Preenche os dados do produto
+                document.getElementById('checkoutProductTitle').textContent = product.title;
+                document.getElementById('checkoutProductType').textContent = `${product.type} - ${product.category}`;
+                document.getElementById('checkoutProductValidity').textContent = `Validade: ${product.validity}`;
+                document.getElementById('checkoutProductImage').src = product.image;
+                document.getElementById('checkoutProductImage').alt = product.title;
+
+                // Preenche os valores
+                const price = product.price.toFixed(2).replace('.', ',');
+                document.getElementById('checkoutSubtotal').textContent = `R$ ${price}`;
+                document.getElementById('checkoutTotal').textContent = `R$ ${price}`;
+
+                // Atualiza opções de parcelamento
+                updateInstallments(product.price);
+            }
+        }
+    }
+}
+
+// Atualiza as opções de parcelamento
+function updateInstallments(price) {
+    const select = document.getElementById('card-installments');
+    if (!select) return;
+
+    select.innerHTML = '';
+
+    // Adiciona opções de 1 a 12 parcelas
+    for (let i = 1; i <= 12; i++) {
+        const installmentValue = (price / i).toFixed(2);
+        const optionText = i === 1
+            ? `1x de R$ ${installmentValue.replace('.', ',')} (à vista)`
+            : `${i}x de R$ ${installmentValue.replace('.', ',')}`;
+
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = optionText;
+        select.appendChild(option);
+    }
+}
+
+// Controle das abas de pagamento
+function setupPaymentTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+
+            // Remove classe active de todos
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Adiciona classe active no selecionado
+            btn.classList.add('active');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+        });
+    });
+}
+
+// Máscara para campos do cartão
+function setupInputMasks() {
+    // Máscara para número do cartão (formato: 1234 5678 9012 3456)
+    const cardNumberInputs = document.querySelectorAll('input[type="text"][id*="card-number"]');
+    cardNumberInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+            e.target.value = value.substring(0, 19);
+        });
+    });
+
+    // Máscara para validade (formato: MM/AA)
+    const expiryInputs = document.querySelectorAll('input[id*="expiry"]');
+    expiryInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value.substring(0, 5);
+        });
+    });
+
+    // Máscara para CVV (3 ou 4 dígitos)
+    const cvvInputs = document.querySelectorAll('input[id*="cvv"]');
+    cvvInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+    });
+}
+
+
+// Modifique a função de compra para redirecionar para o checkout
+function setupBuyButton() {
+    const buyButton = document.getElementById('buyButton');
+
+    if (buyButton) {
+        buyButton.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            window.location.href = `checkout.html?id=${productId}`;
+        });
+    }
+}
+
+function setupConfirmButtons() {
+    // Obtém o ID do produto da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // Configura todos os botões de confirmação
+    document.querySelectorAll('.confirm-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Previne o comportamento padrão do formulário
+
+            // Redireciona para a invoice com o ID do produto
+            window.location.href = `invoice.html?id=${productId}`;
+        });
+    });
 }

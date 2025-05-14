@@ -8,97 +8,97 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">
-    <img src="images/logo.jpg" 
-         alt="Veridya - Certificados Digitais" 
-         class="logo-img">
-</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" style="color: #163828;">Home</a></li>
-                    <li><a href="#compre" style="color: #DD7126;">Compre</a></li>
-                    <li><a href="#mais-vendidos" style="color: #7C7F38;">Mais Vendidos</a></li>
-                    <li><a href="#contato" style="color: #163828;">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">
+            <img src="images/logo.jpg"
+                 alt="Veridya - Certificados Digitais"
+                 class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="color: #163828;">Home</a></li>
+                <li><a href="#compre" style="color: #DD7126;">Compre</a></li>
+                <li><a href="#mais-vendidos" style="color: #7C7F38;">Mais Vendidos</a></li>
+                <li><a href="#contato" style="color: #163828;">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- Seção Carrossel -->
-    <section class="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="images/Certificado-A1-e-Certificado-A3-para-e-CPF-e-e-CNPJ.jpg" alt="Certificado Digital A1">
-                <div class="carousel-caption">
-                    <h2>Certificado Digital A1</h2>
-                    <p>Validade de 1 ano, instalação simples no computador</p>
-                    <a href="#compre" class="btn" style="background-color: #7C7F38;">Saiba Mais</a>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/banner_quem_somos.jpg" alt="Certificado Digital A3">
-                <div class="carousel-caption">
-                    <h2>Certificado Digital A3</h2>
-                    <p>Validade de 3 anos, maior segurança com token</p>
-                    <a href="#compre" class="btn" style="background-color: #DD7126;">Saiba Mais</a>
-                </div>
-            </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-        <div class="carousel-dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-        </div>
-    </section>
-
-    <!-- Seção Compre seu Certificado -->
-    <section id="compre" class="buy-section">
-        <div class="container">
-            <h2 style="color: #163828;">Compre seu Certificado Digital</h2>
-            <div class="buy-options">
-                <div class="buy-card">
-                    <i class="fas fa-certificate" style="color: #7C7F38;"></i>
-                    <h3>Novo Certificado</h3>
-                    <p>Adquira seu primeiro certificado digital com toda segurança Veridya</p>
-                    <a href="#mais-vendidos" class="btn" style="background-color: #7C7F38;">Comprar</a>
-                </div>
-                <div class="buy-card">
-                    <i class="fas fa-redo" style="color: #DD7126;"></i>
-                    <h3>Renovar Certificado</h3>
-                    <p>Renove seu certificado digital com condições especiais</p>
-                    <a href="#renovar" class="btn" style="background-color: #DD7126;">Renovar</a>
-                </div>
-                <div class="buy-card">
-                    <i class="fas fa-question-circle" style="color: #163828;"></i>
-                    <h3>Precisa de Ajuda?</h3>
-                    <p>Nossa equipe está pronta para te ajudar na escolha do certificado ideal</p>
-                    <a href="#contato" class="btn" style="background-color: #163828;">Falar com Especialista</a>
-                </div>
+<!-- Seção Carrossel -->
+<section class="carousel">
+    <div class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="images/Certificado-A1-e-Certificado-A3-para-e-CPF-e-e-CNPJ.jpg" alt="Certificado Digital A1">
+            <div class="carousel-caption">
+                <h2>Certificado Digital A1</h2>
+                <p>Validade de 1 ano, instalação simples no computador</p>
+                <a href="#compre" class="btn" style="background-color: #7C7F38;">Saiba Mais</a>
             </div>
         </div>
-    </section>
-
-    <!-- Seção Mais Vendidos -->
-    <section id="mais-vendidos" class="featured-products">
-        <div class="container">
-            <h2 style="color: #DD7126;">Certificados Mais Vendidos</h2>
-            <div class="product-grid" id="productContainer">
-                <!-- Produtos serão carregados via JavaScript -->
+        <div class="carousel-slide">
+            <img src="images/banner_quem_somos.jpg" alt="Certificado Digital A3">
+            <div class="carousel-caption">
+                <h2>Certificado Digital A3</h2>
+                <p>Validade de 3 anos, maior segurança com token</p>
+                <a href="#compre" class="btn" style="background-color: #DD7126;">Saiba Mais</a>
             </div>
         </div>
-    </section>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+</section>
 
-    <footer id="contato">
-        <div class="container">
-            <p>&copy; 2023 Veridya. Todos os direitos reservados.</p>
-            <p>Contato: contato@veridya.com | (11) 1234-5678</p>
+<!-- Seção Compre seu Certificado -->
+<section id="compre" class="buy-section">
+    <div class="container">
+        <h2 style="color: #163828;">Compre seu Certificado Digital</h2>
+        <div class="buy-options">
+            <div class="buy-card">
+                <i class="fas fa-certificate" style="color: #7C7F38;"></i>
+                <h3>Novo Certificado</h3>
+                <p>Adquira seu primeiro certificado digital com toda segurança Veridya</p>
+                <a href="#mais-vendidos" class="btn" style="background-color: #7C7F38;">Comprar</a>
+            </div>
+            <div class="buy-card">
+                <i class="fas fa-redo" style="color: #DD7126;"></i>
+                <h3>Renovar Certificado</h3>
+                <p>Renove seu certificado digital com condições especiais</p>
+                <a href="#renovar" class="btn" style="background-color: #DD7126;">Renovar</a>
+            </div>
+            <div class="buy-card">
+                <i class="fas fa-question-circle" style="color: #163828;"></i>
+                <h3>Precisa de Ajuda?</h3>
+                <p>Nossa equipe está pronta para te ajudar na escolha do certificado ideal</p>
+                <a href="#contato" class="btn" style="background-color: #163828;">Falar com Especialista</a>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="js/main.js"></script>
+<!-- Seção Mais Vendidos -->
+<section id="mais-vendidos" class="featured-products">
+    <div class="container">
+        <h2 style="color: #DD7126;">Certificados Mais Vendidos</h2>
+        <div class="product-grid" id="productContainer">
+            <!-- Produtos serão carregados via JavaScript -->
+        </div>
+    </div>
+</section>
+
+<footer id="contato">
+    <div class="container">
+        <p>&copy; 2023 Veridya. Todos os direitos reservados.</p>
+        <p>Contato: contato@veridya.com | (11) 1234-5678</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 <script>initHome();</script>
 </body>
 </html>

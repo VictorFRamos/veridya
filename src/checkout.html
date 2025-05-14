@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veridya - Finalizar Compra</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">
+            <img src="images/logo.jpg"
+                 alt="Veridya - Certificados Digitais"
+                 class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="color: #163828;">Home</a></li>
+                <li><a href="index.html#compre" style="color: #DD7126;">Compre</a></li>
+                <li><a href="index.html#mais-vendidos" style="color: #7C7F38;">Produtos</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container checkout-container">
+    <div class="checkout-steps">
+        <div class="step active">
+            <span>1</span>
+            <p>Pagamento</p>
+        </div>
+        <div class="step">
+            <span>2</span>
+            <p>Revisão</p>
+        </div>
+        <div class="step">
+            <span>3</span>
+            <p>Confirmação</p>
+        </div>
+    </div>
+
+    <div class="checkout-grid">
+        <div class="checkout-summary">
+            <h2 style="color: #163828;">Resumo do Pedido</h2>
+            <div class="summary-product">
+                <img src="" alt="" id="checkoutProductImage">
+                <div>
+                    <h3 id="checkoutProductTitle"></h3>
+                    <p id="checkoutProductType"></p>
+                    <p id="checkoutProductValidity"></p>
+                </div>
+            </div>
+            <div class="summary-total">
+                <p>Subtotal: <span id="checkoutSubtotal"></span></p>
+                <p>Desconto: <span>R$ 0,00</span></p>
+                <p class="total">Total: <span id="checkoutTotal"></span></p>
+            </div>
+        </div>
+
+        <div class="checkout-form">
+            <h2 style="color: #7C7F38;">Método de Pagamento</h2>
+
+            <div class="payment-methods">
+                <div class="payment-tabs">
+                    <button class="tab-btn active" data-tab="pix">
+                        <i class="fas fa-qrcode"></i> PIX
+                    </button>
+                    <button class="tab-btn" data-tab="credit">
+                        <i class="far fa-credit-card"></i> Cartão de Crédito
+                    </button>
+                    <button class="tab-btn" data-tab="debit">
+                        <i class="fas fa-credit-card"></i> Cartão de Débito
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="pix-tab">
+                    <div class="pix-info">
+                        <p>Pagamento instantâneo com melhor taxa</p>
+                        <div class="pix-code-container">
+                            <img src="images/pix-qrcode.png"
+                                 alt="QR Code PIX"
+                                 class="pix-qrcode">
+                            <div class="pix-copy">
+                                <p>Chave PIX: <span>contato@veridya.com</span></p>
+                                <button class="btn" style="background-color: #163828;">
+                                    <i class="fas fa-copy"></i> Copiar Código
+                                </button>
+                                <p class="pix-expire">Expira em: <span>30 minutos</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn confirm-btn" style="background-color: #7C7F38;">
+                        Já efetuei o pagamento
+                    </button>
+                </div>
+
+                <div class="tab-content" id="credit-tab">
+                    <form id="credit-form">
+                        <div class="form-group">
+                            <label for="card-number">Número do Cartão</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Nome no Cartão</label>
+                            <input type="text" id="card-name" placeholder="Nome como está no cartão">
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Validade</label>
+                                <input type="text" id="card-expiry" placeholder="MM/AA">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input type="text" id="card-cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-installments">Parcelamento</label>
+                            <select id="card-installments">
+                                <option value="1">1x de R$ 199,90 (à vista)</option>
+                                <option value="2">2x de R$ 99,95</option>
+                                <option value="3">3x de R$ 66,63</option>
+                                <option value="4">4x de R$ 49,98</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn confirm-btn" style="background-color: #DD7126;">
+                            Finalizar Compra
+                        </button>
+                    </form>
+                </div>
+
+                <div class="tab-content" id="debit-tab">
+                    <form id="debit-form">
+                        <div class="form-group">
+                            <label for="debit-card-number">Número do Cartão</label>
+                            <input type="text" id="debit-card-number" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="debit-card-name">Nome no Cartão</label>
+                            <input type="text" id="debit-card-name" placeholder="Nome como está no cartão">
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="debit-card-expiry">Validade</label>
+                                <input type="text" id="debit-card-expiry" placeholder="MM/AA">
+                            </div>
+                            <div class="form-group">
+                                <label for="debit-card-cvv">CVV</label>
+                                <input type="text" id="debit-card-cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn confirm-btn" style="background-color: #163828;">
+                            Finalizar Compra
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Veridya. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>initCheckout();</script>
+</body>
+</html>
