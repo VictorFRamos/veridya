@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado - Veridya</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -31,36 +33,42 @@
             <div class="installments" id="productInstallments">
                 <p>ou 10x de R$ 19,99 sem juros</p>
             </div>
+
+            <div class="product-promo" id="productPromo">
+                <!-- Conteúdo será preenchido pelo JavaScript -->
+            </div>
+
             <p class="description" id="productDescription">
-                Certificado digital verificável com tecnologia blockchain. Ideal para comprovar conclusão de cursos, workshops e treinamentos.
+                Certificado digital verificável com tecnologia blockchain. Ideal para comprovar conclusão de cursos,
+                workshops e treinamentos.
             </p>
             <button class="btn" style="background-color: #7C7F38;" id="buyButton">Comprar Agora</button>
-            
-           <div class="specs">
-    <h3 style="color: #163828;">Especificações Técnicas</h3>
-    <div class="specs-grid">
-        <div class="spec-item">
-            <span class="spec-label">Tipo:</span>
-            <span class="spec-value" id="productType">A1</span>
-        </div>
-        <div class="spec-item">
-            <span class="spec-label">Categoria:</span>
-            <span class="spec-value" id="productCategory">e-CPF</span>
-        </div>
-        <div class="spec-item">
-            <span class="spec-label">Validade:</span>
-            <span class="spec-value" id="productValidity">1 ano</span>
-        </div>
-    </div>
-</div>
 
-<div class="features">
-    <h3 style="color: #7C7F38;">Características:</h3>
-    <ul id="productFeatures">
-        <!-- Features serão carregadas via JavaScript -->
-    </ul>
-</div>
-            
+            <div class="specs">
+                <h3 style="color: #163828;">Especificações Técnicas</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Tipo:</span>
+                        <span class="spec-value" id="productType">A1</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Categoria:</span>
+                        <span class="spec-value" id="productCategory">e-CPF</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Validade:</span>
+                        <span class="spec-value" id="productValidity">1 ano</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <h3 style="color: #7C7F38;">Características:</h3>
+                <ul id="productFeatures">
+                    <!-- Features serão carregadas via JavaScript -->
+                </ul>
+            </div>
+
         </div>
     </main>
 
@@ -74,4 +82,5 @@
     <script src="js/main.js"></script>
     <script>initDetalhes();</script>
 </body>
+
 </html>

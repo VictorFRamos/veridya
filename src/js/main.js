@@ -112,18 +112,27 @@ function renderProducts() {
     const productContainer = document.getElementById('productContainer');
     
     if (productContainer) {
-        // Ordena por mais vendidos (simulação)
-        const bestSellers = [...products].sort((a, b) => b.id - a.id);
-        
-        productContainer.innerHTML = bestSellers.map(product => `
+        productContainer.innerHTML = products.map(product => `
             <div class="product-card">
-                <img src="${product.image}" alt="${product.title}" onerror="this.src='https://via.placeholder.com/300x200.png/7C7F38/FFFFFF?text=Certificado+${product.type}'">
+                ${product.isOnSale ? `<div class="sale-badge">PROMOÇÃO</div>` : ''}
+                <img src="${product.image}" alt="${product.title}">
                 <div class="product-info">
                     <h3>${product.title}</h3>
-                    <div class="product-badge">
+                    <div class="product-badge" >
                         ${product.type}
                     </div>
-                    <p class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                    <div class="product-pricing">
+                        ${product.isOnSale ? `
+                            <p class="original-price">De: R$ ${product.originalPrice.toFixed(2).replace('.', ',')}</p>
+                            <p class="price">Por: R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                            <p class="discount">${Math.round((1 - product.price/product.originalPrice) * 100)}% OFF</p>
+                            <p class="countdown-timer" data-endtime="${product.discountEnds}">
+                                ${formatTimeRemaining(product.discountEnds)}
+                            </p>
+                        ` : `
+                            <p class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                        `}
+                    </div>
                     <p class="validity">Validade: ${product.validity}</p>
                     <p class="installments">${product.installments}</p>
                     <a href="produto.html?id=${product.id}" class="btn">Detalhes</a>
@@ -346,4 +355,33 @@ function setupConfirmButtons() {
             window.location.href = `invoice.html?id=${productId}`;
         });
     });
+}
+
+
+function formatTimeRemaining(endTime) {
+    const now = new Date();
+    const end = new Date(endTime);
+    const diff = end - now;
+    
+    if (diff <= 0) return "Oferta expirada";
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    return `${hours}h ${minutes}m ${seconds}s`;
+}
+
+// Função para atualizar todos os contadores
+function updateCountdowns() {
+    document.querySelectorAll('.countdown-timer').forEach(timer => {
+        const endTime = timer.getAttribute('data-endtime');
+        timer.textContent = formatTimeRemaining(endTime);
+    });
+}
+
+// Iniciar contagem regressiva
+function startCountdown() {
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000);
 }

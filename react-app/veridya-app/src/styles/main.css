@@ -53,17 +53,17 @@ header .container {
     transform: scale(1.05); /* Efeito sutil ao passar o mouse */
 }
 
-nav ul {
+nav.main-nav {
     display: flex;
     list-style: none;
     align-items: center;
 }
 
-nav ul li {
+nav.main-nav a {
     margin-left: 30px;
 }
 
-nav ul li a {
+nav.main-nav a {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
@@ -562,4 +562,30 @@ header .container {
 .promo-text h3 {
     color: #163828;
     margin-bottom: 5px;
+}
+
+
+/* Cores específicas */
+.bg-7C7F38 {
+    background-color: #7C7F38;
+}
+
+.bg-DD7126 {
+    background-color: #DD7126;
+}
+
+.bg-163828 {
+    background-color: #163828;
+}
+
+.text-7C7F38 {
+    color: #7C7F38;
+}
+
+.text-DD7126 {
+    color: #DD7126;
+}
+
+.text-163828 {
+    color: #163828;
 }
