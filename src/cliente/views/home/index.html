@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veridya - Minha Conta</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+     <link rel="stylesheet" href="../../css/cliente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+            <img src="../../../images/logo.jpg"
+                 alt="Veridya - Certificados Digitais"
+                 class="logo-img">
+        </a>
+            <nav>
+                <ul>
+                    <li><a href="client-area.html" style="color: #163828;">Meus Certificados</a></li>
+                    <li><a href="client-area.html#dados" style="color: #DD7126;">Meus Dados</a></li>
+                    <li><a href="../../../index.html" style="color: #7C7F38;">Voltar ao Site</a></li>
+                    <li><a href="../auth/login.html" id="logoutBtn" style="color: #ff4d4d;">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container client-area">
+        <div class="client-welcome">
+            <h1 style="color: #163828;">Olá, <span id="clientName">João Silva</span>!</h1>
+            <p>Bem-vindo à sua área de clientes Veridya</p>
+        </div>
+
+        <section id="certificados" class="client-certificates">
+            <h2 style="color: #DD7126;">Meus Certificados</h2>
+            
+            <div class="certificate-grid" id="certificateContainer">
+                <!-- Certificados serão carregados via JavaScript -->
+            </div>
+        </section>
+
+        <section id="dados" class="client-info">
+            <h2 style="color: #7C7F38;">Meus Dados</h2>
+            
+            <div class="info-card">
+                <div class="info-group">
+                    <h3>Informações Pessoais</h3>
+                    <p><strong>Nome:</strong> <span id="clientFullName">João da Silva</span></p>
+                    <p><strong>CPF:</strong> <span id="clientCpf">123.456.789-00</span></p>
+                    <p><strong>E-mail:</strong> <span id="clientEmail">joao@exemplo.com</span></p>
+                </div>
+                
+                <div class="info-group">
+                    <h3>Segurança</h3>
+                    <p><strong>Último acesso:</strong> <span id="lastLogin">20/10/2023 às 14:30</span></p>
+                    <button class="btn" style="background-color: #163828;">Alterar Senha</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Veridya. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/cliente.js"></script>
+    <script>initHomeCliente();</script>
+</body>
+</html>

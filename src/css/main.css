@@ -433,3 +433,55 @@ footer p {
     margin-bottom: 40px;
 }
 
+/* Estilo do botão da área do cliente */
+.client-area-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #7C7F38;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.client-area-btn:hover {
+    background-color: #6a6d30;
+}
+
+.client-area-btn i {
+    font-size: 1rem;
+}
+
+/* Ajuste no header para o novo botão */
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .client-area-btn {
+        margin-right: 0;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    header .container {
+        flex-wrap: wrap;
+    }
+    
+    .client-area-btn {
+        order: 1;
+        margin-left: auto;
+    }
+    
+    nav {
+        order: 2;
+        width: 100%;
+        margin-top: 15px;
+    }
+}

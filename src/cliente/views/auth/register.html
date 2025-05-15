@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veridya - Criar Conta</title>
+      <link rel="stylesheet" href="../../../css/main.css">
+      <link rel="stylesheet" href="../../css/cliente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+             <a href="../../../index.html" class="logo">
+            <img src="../../../images/logo.jpg"
+                 alt="Veridya - Certificados Digitais"
+                 class="logo-img">
+        </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color: #163828;">Home</a></li>
+                    <li><a href="index.html#compre" style="color: #DD7126;">Compre</a></li>
+                    <li><a href="index.html#mais-vendidos" style="color: #7C7F38;">Produtos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container auth-container">
+        <div class="auth-card">
+            <h2 style="color: #163828;">Criar nova conta</h2>
+            <p>Registre-se para gerenciar seus certificados digitais</p>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="reg-name">Nome Completo</label>
+                    <input type="text" id="reg-name" placeholder="Seu nome completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-cpf">CPF</label>
+                    <input type="text" id="reg-cpf" placeholder="000.000.000-00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-password">Senha</label>
+                    <input type="password" id="reg-password" placeholder="Crie uma senha segura" required>
+                    <div class="password-hint">
+                        <p>A senha deve conter:</p>
+                        <ul>
+                            <li>Mínimo 8 caracteres</li>
+                            <li>1 letra maiúscula</li>
+                            <li>1 número</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-confirm-password">Confirme sua senha</label>
+                    <input type="password" id="reg-confirm-password" placeholder="Digite a senha novamente" required>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="reg-terms" required>
+                    <label for="reg-terms">Li e aceito os <a href="#" style="color: #7C7F38;">Termos de Serviço</a> e <a href="#" style="color: #7C7F38;">Política de Privacidade</a></label>
+                </div>
+                
+                <button type="submit" class="btn" style="background-color: #7C7F38;">Criar Conta</button>
+                
+                <div class="auth-footer">
+                    <p>Já tem uma conta? <a href="login.html" style="color: #163828;">Faça login</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Veridya. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/cliente.js"></script>
+    <script>initRegister();</script>
+</body>
+</html>
