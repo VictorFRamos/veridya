@@ -29,13 +29,12 @@ function ProductCard({ product }) {
             <p className="price">R$ {product.price.toFixed(2).replace('.', ',')}</p>
           )}
         </div>
-        
         <Link 
           to={`/produto/${product.id}`} 
           className="btn" 
           // style={{ backgroundColor: product.type === 'A1' ? '#7C7F38' : '#DD7126' }}
         >
-          Detalhes
+        Ver Detalhes
         </Link>
       </div>
     </div>

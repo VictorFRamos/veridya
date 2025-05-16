@@ -1,12 +1,37 @@
 import { useEffect, useState } from 'react';
 import { fetchFeaturedProducts } from '../../services/productService';
 import ProductCard from '../../components/common/ProductCard';
+import Header from '../../components/common/Header';
+import Footer from '../../components/common/Footer';
+import Carousel from '../../components/common/Carousel';
 import '../../styles/main.css';
 
 function Home() {
    const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Dados do carrossel
+  const carouselSlides = [
+    {
+      image: "../images/Certificado-A1-e-Certificado-A3-para-e-CPF-e-e-CNPJ.jpg",
+      alt: "Certificado Digital A1",
+      title: "Certificado Digital A1",
+      description: "Validade de 1 ano, instalação simples no computador",
+      link: "#compre",
+      buttonText: "Saiba Mais",
+      buttonColor: "7C7F38"
+    },
+    {
+      image: "../images/banner_quem_somos.jpg",
+      alt: "Certificado Digital A3",
+      title: "Certificado Digital A3",
+      description: "Validade de 3 anos, maior segurança com token",
+      link: "#compre",
+      buttonText: "Saiba Mais",
+      buttonColor: "DD7126"
+    }
+  ];
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -25,33 +50,10 @@ function Home() {
   }, []);
 
   return (
+    
     <div className="home-page">
-<section className="carousel">
-    <div className="carousel-container">
-        <div className="carousel-slide active">
-            <img src="images/Certificado-A1-e-Certificado-A3-para-e-CPF-e-e-CNPJ.jpg" alt="Certificado Digital A1" />
-            <div className="carousel-caption">
-                <h2>Certificado Digital A1</h2>
-                <p>Validade de 1 ano, instalação simples no computador</p>
-                <a href="#compre" className="btn bg-7C7F38">Saiba Mais</a>
-            </div>
-        </div>
-        <div className="carousel-slide">
-            <img src="images/banner_quem_somos.jpg" alt="Certificado Digital A3" />
-            <div className="carousel-caption">
-                <h2>Certificado Digital A3</h2>
-                <p>Validade de 3 anos, maior segurança com token</p>
-                <a href="#compre" className="btn bg-DD7126">Saiba Mais</a>
-            </div>
-        </div>
-        <button className="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button className="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-    </div>
-    <div className="carousel-dots">
-        <span className="dot active" onclick="currentSlide(1)"></span>
-        <span className="dot" onclick="currentSlide(2)"></span>
-    </div>
-</section>
+       <Header />
+  <Carousel slides={carouselSlides} />
 
 <section id="compre" className="buy-section">
     <div className="container">
@@ -95,6 +97,7 @@ function Home() {
           )}
         </div>
       </section>
+      <Footer/>
 </div>
   );
 }

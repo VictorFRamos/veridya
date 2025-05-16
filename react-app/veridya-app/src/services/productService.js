@@ -9,7 +9,7 @@ const mockProducts = [
         category: "e-CPF",
         price: 159.90,
         validity: "1 ano",
-        image: "images/certificado-a1.jpg",
+        image: "../images/certificado-a1.jpg",
         description: "Certificado digital A1 para pessoa física (e-CPF), válido por 1 ano. Instalado diretamente no computador ou dispositivo móvel.",
         features: [
             "Validade: 1 ano",
@@ -27,7 +27,7 @@ const mockProducts = [
         category: "e-CNPJ",
         price: 229.90,
         validity: "1 ano",
-         image: "images/certificado-a1.jpg",
+         image: "../images/certificado-a1.jpg",
         description: "Certificado digital A1 para pessoa jurídica (e-CNPJ), válido por 1 ano. Permite assinar documentos e acessar sistemas governamentais.",
         features: [
             "Validade: 1 ano",
@@ -45,7 +45,7 @@ const mockProducts = [
         category: "e-CPF",
         price: 249.90,
         validity: "3 anos",
-        image: "images/certificado-a3.jpg",
+        image: "../images/certificado-a3.jpg",
         description: "Certificado digital A3 para pessoa física (e-CPF), válido por 3 anos. Armazenado em mídia criptográfica (token ou cartão).",
         features: [
             "Validade: 3 anos",
@@ -63,7 +63,7 @@ const mockProducts = [
         category: "e-CNPJ",
         price: 399.90,
         validity: "3 anos",
-        image: "images/certificado-a3.jpg",
+        image: "../images/certificado-a3.jpg",
         description: "Certificado digital A3 para pessoa jurídica (e-CNPJ), válido por 3 anos. Solução mais segura e durável para empresas.",
         features: [
             "Validade: 3 anos",
@@ -88,6 +88,24 @@ export const fetchFeaturedProducts = async () => {
     return mockProducts;
   } catch (error) {
     console.error("Erro ao buscar produtos:", error);
+    throw error;
+  }
+};
+
+export const fetchProductById = async (id) => {
+  try {
+    // Simulando chamada à API
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    const product = mockProducts.find(p => p.id === parseInt(id));
+    
+    if (!product) {
+      throw new Error('Produto não encontrado');
+    }
+    
+    return product;
+  } catch (error) {
+    console.error("Erro ao buscar produto:", error);
     throw error;
   }
 };

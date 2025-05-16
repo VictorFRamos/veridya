@@ -11,9 +11,9 @@ function Header() {
     <header className="app-header">
       <div className="container">
         <Link to="/" className="logo">
-           <img src="images/logo.jpg"
+           <img src="../images/logo.jpg"
                  alt="Veridya - Certificados Digitais"
-                 class="logo-img" />
+                 className="logo-img" />
         </Link>
         
         <nav className="main-nav">
